@@ -1,8 +1,11 @@
 --- 
+-  
+  name: "Download nodexporter"
+  get_url: url=https://github.com/prometheus/node_exporter/releases/download/v0.16.0-rc.0/node_exporter-0.16.0-rc.0.linux-amd64.tar.gz dest=/home/ec2-user/
 - 
   name: "Install node_exporter library on Prometheus Clients"
   shell: |-
-      wget https://github.com/prometheus/node_exporter/releases/download/v0.16.0-rc.0/node_exporter-0.16.0-rc.0.linux-amd64.tar.gz
+      cd /home/ec2-user
       tar xvfz node_exporter-*.tar.gz
       cd node_exporter-*
       ./node_exporter

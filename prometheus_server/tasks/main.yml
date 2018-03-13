@@ -1,15 +1,21 @@
 --- 
 - 
+  get_url: "url=https://github.com/prometheus/prometheus/releases/download/v2.2.0/prometheus-2.2.0.linux-amd64.tar.gz dest=/home/ec2-user/"
+  name: "Download prometheus installer"
+- 
   name: "update prometheus server inventory file"
   shell: |-
-      wget https://github.com/prometheus/prometheus/releases/download/v2.2.0/prometheus-2.2.0.linux-amd64.tar.gz
-          tar xvfz prometheus-*.tar.gz
-          cd prometheus-*
-          cp -rpf prometheus.yml prometheus.yml-orig
-          rm -rf prometheus.yml
-          rm -rf prometheus-2.2.0.linux-amd64.tar.gz
+      cd /home/ec2-user
+      tar xvfz prometheus-*.tar.gz
+      cd prometheus-*
+      cp -rpf prometheus.yml prometheus.yml-orig
+      rm -rf prometheus.yml
+      cd ..
+      rm -rf prometheus-2.2.0.linux-amd64.tar.gz
+- 
+  name: "update prometheus inventory"
   template: "src=prometheus.yml dest=/home/ec2-user/prometheus-2.2.0.linux-amd64/ owner=root group=root"
+- 
   name: "Start prometheus server"
-  shell: |-
-      cd /home/ec2-user/prometheus-2.2.0.linux-amd64
-      ./prometheus --config.file=prometheus.yml
+  shell: "cd /home/ec2-user/prometheus-2.2.0.linux-amd64\n\
+      ./prometheus --config.file=prometheus.yml  "
