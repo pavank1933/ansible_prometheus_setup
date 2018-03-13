@@ -9,3 +9,5 @@
       tar xvfz node_exporter-*.tar.gz
       cd node_exporter-*
       ./node_exporter
+      sleep 3
+      exit 0
