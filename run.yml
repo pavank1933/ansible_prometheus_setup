@@ -1,13 +1,13 @@
---- 
-- 
-  hosts: prometheus_server
-  roles: 
-    - prometheus_server
+---
+-
+  hosts: prometheus_client_setup
+  roles:
+    - prometheus_client_setup
   sudo: true
   user: root
-- 
-  hosts: prometheus_client_setup
-  roles: 
-    - prometheus_client_setup
+-
+  hosts: prometheus_server
+  roles:
+    - prometheus_server
   sudo: true
   user: root
