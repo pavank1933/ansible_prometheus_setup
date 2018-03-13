@@ -1,0 +1,6 @@
+---
+ - hosts: prometheus_server
+   sudo: yes
+   user: root
+   roles:
+    - prometheus_server
