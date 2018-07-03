@@ -26,4 +26,5 @@ scrape_configs:
     # scheme defaults to 'http'.
 
     static_configs:
-      - targets: ['54.210.243.165:9100', '34.235.120.235:9100']
+      - targets: ['${promc1}:9090']
+	  #- targets: ['54.210.243.165:9100', '34.235.120.235:9100']

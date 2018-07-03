@@ -1,6 +1,6 @@
 ---
 -
-  hosts: prometheus_client_setup
+  hosts: prometheus_client
   roles:
     - prometheus_client_setup
   sudo: true
