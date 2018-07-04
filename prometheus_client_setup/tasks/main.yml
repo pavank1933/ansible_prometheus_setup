@@ -8,6 +8,8 @@
       cd /home/ec2-user
       tar xvfz node_exporter-*.tar.gz
       cd node_exporter-*
-      ./node_exporter
-      sleep 3
-      exit 0
+      nohup /home/ec2-user/node_exporter-0.16.0-rc.0.linux-amd64/node_exporter > /dev/null 2>&1 &
+      #./node_exporter
+      #sleep 3
+      #exit 0
+
